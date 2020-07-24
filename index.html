@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="Subtraction-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phoneInput" type="text" class="form-control text-center" value="1">
+                           <button id="plus-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="phoneAmount">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="caseBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseInput" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="caseAmount">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subtotal">1278</span></h5>
+                        <h5>$0</h5>
+                        <h5>$<span id="totalAmount">1278</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <script>
+      // iPhone 11 128GB Black
+
+     var plusBtn = document.getElementById("plus-btn")
+      plusBtn.addEventListener("click",function () {
+         // var phoneInput =document.getElementById("phoneInput").value
+         // var phoneInputNumber = parseInt(phoneInput)
+         // var total = phoneInputNumber + 1 ;
+         // document.getElementById("phoneInput").value = total 
+      updateBtn("phoneInput")
+
+         // phoneAmount
+         var phoneAmount = document.getElementById("phoneAmount").innerText 
+         var phoneAmountNumber = parseInt(phoneAmount)
+         var totalPhoneAmount = phoneAmountNumber + 1219 ; 
+         document.getElementById("phoneAmount").innerText = totalPhoneAmount
+
+         // Subtotal
+         var subtotalAmount = document.getElementById("subtotal").innerText
+         var subtotalAmountNumber = parseInt(subtotalAmount)
+        var amount =subtotalAmountNumber + 1219;
+         document.getElementById("subtotal").innerText = amount
+
+         // total
+         var totalAmount = document.getElementById("totalAmount").innerText
+         var totalAmountNumber = parseInt(totalAmount)
+        var amount =totalAmountNumber + 1219;
+         document.getElementById("totalAmount").innerText = amount
+
+      })
+      // SUBTRACTION BTN
+
+      var SubtractionBtn =  document.getElementById("Subtraction-btn")
+      SubtractionBtn.addEventListener("click",function() {
+         // var phoneInput = document.getElementById("phoneInput").value
+         // var phoneInputNumber = parseInt(phoneInput)
+         // var total = phoneInputNumber - 1 ;
+         // document.getElementById("phoneInput").value = total
+         updateSubBtn("phoneInput")
+
+         // phoneAmount
+         var phoneAmount = document.getElementById("phoneAmount").innerText 
+         var phoneAmountNumber = parseInt(phoneAmount)
+         var totalPhoneAmount = phoneAmountNumber - 1219 ; 
+         document.getElementById("phoneAmount").innerText = totalPhoneAmount
+
+         // subtotal
+         var subtotalAmount = document.getElementById("subtotal").innerText
+         var subtotalAmountNumber = parseInt(subtotalAmount)
+        var amount = subtotalAmountNumber - 1219
+         document.getElementById("subtotal").innerText = amount
+
+         // total
+         var totalAmount = document.getElementById("totalAmount").innerText
+         var totalAmountNumber = parseInt(totalAmount)
+        var amount =totalAmountNumber - 1219;
+         document.getElementById("totalAmount").innerText = amount
+      })
+     
+      // iPhone 11 Silicone Case - Black
+
+      var btn = document.getElementById("plusBtn")
+      btn.addEventListener("click",function () {
+         // var caseInput = document.getElementById("caseInput").value
+         // var caseInputNumber = parseInt(caseInput)
+         // var totalCase = caseInputNumber + 1;
+         //  document.getElementById("caseInput").value = totalCase
+         updateBtn("caseInput")
+
+         // caseAmount
+         var caseAmount = document.getElementById("caseAmount").innerText 
+         var caseAmountNumber = parseInt(caseAmount)
+         var totalCaseAmount = caseAmountNumber + 59 ; 
+         document.getElementById("caseAmount").innerText = totalCaseAmount
+
+         // subtotal
+         var subtotalAmount = document.getElementById("subtotal").innerText
+         var subtotalAmountNumber = parseInt(subtotalAmount)
+        var amount = subtotalAmountNumber + 59
+         document.getElementById("subtotal").innerText = amount
+
+         // total
+         var totalAmount = document.getElementById("totalAmount").innerText
+         var totalAmountNumber = parseInt(totalAmount)
+        var amount =totalAmountNumber + 59;
+         document.getElementById("totalAmount").innerText = amount
+
+      })
+      function updateBtn(id) {
+          var Input = document.getElementById(id).value
+         var InputNumber = parseInt(Input)
+         var total = InputNumber + 1;
+          document.getElementById(id).value = total
+      }
+
+      //  SUBTRACTION BTN 2 
+       var caseBtn = document.getElementById("caseBtn")
+       caseBtn.addEventListener("click",function () {
+      //     var caseInput = document.getElementById("caseInput").value
+      //  var caseInputNumber = parseInt(caseInput)
+      //     var totalCase = caseInputNumber - 1;
+      //      document.getElementById("caseInput").value = totalCase 
+      updateSubBtn("caseInput")
+
+      // caseAmount
+      var caseAmount = document.getElementById("caseAmount").innerText 
+         var caseAmountNumber = parseInt(caseAmount)
+         var totalCaseAmount = caseAmountNumber - 59 ; 
+         document.getElementById("caseAmount").innerText = totalCaseAmount
+
+         // subtotal
+         var subtotalAmount = document.getElementById("subtotal").innerText
+         var subtotalAmountNumber = parseInt(subtotalAmount)
+        var amount = subtotalAmountNumber - 59
+         document.getElementById("subtotal").innerText = amount
+
+         // total
+         var totalAmount = document.getElementById("totalAmount").innerText
+         var totalAmountNumber = parseInt(totalAmount)
+        var amount =totalAmountNumber - 59;
+         document.getElementById("totalAmount").innerText = amount
+
+
+       })
+       function updateSubBtn(id) {
+         var caseInput = document.getElementById(id).value
+       var caseInputNumber = parseInt(caseInput)
+          var totalCase = caseInputNumber - 1;
+           document.getElementById(id).value = totalCase 
+       }
+
+   </script>
+
+</body>
+
+</html>
